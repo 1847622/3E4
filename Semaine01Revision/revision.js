@@ -52,7 +52,7 @@ const sum = (a, b) => a + b;
 const result = sum(12, 8);
 console.log(result);
 
-// filtre permt d efiltrer les resultat un pe ucomme une condition if 
+// filtre permt de filtrer les resultat un peu comme une condition if 
 const filtre = fruits.filter(f => f.length > 6);
 console.log(filtre);
 
