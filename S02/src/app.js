@@ -1,7 +1,16 @@
 import express from 'express'; // La variable doit avoir le meme nom que la bilbiotheque
 import dayjs from 'dayjs';
+import planetsRoutes from './routes/planets.routes.js';
+import methodMiddlewares from './middlewares/method.js';
+import errorsMiddlewares from './middlewares/errors.js';
+
 
 const app = express();
+
+
+
+app.use(methodMiddlewares);
+app.use(planetsRoutes); // Ajouter un paquets de routes dans l'application , dans ce cas , c'est PlanetsRoutes
 
 
 app.get('/date',(req,res) => {
@@ -19,11 +28,6 @@ res.send('Notre premiere route avec express');
 
 });
 
-// maths/somme
-//maths/difference
-//maths/produit
-//maths/quotient
-//maths/reste
 
 // avec le :operation on prend le lien écrit par le client sur le url du fureteur pour ensuite faire un switch case pour rediriger ce qu'on veut faire
 app.get('/maths/:operation',(req,res) => {
@@ -67,5 +71,7 @@ switch(operation)
 //console.log(req.query);
 
 });
+
+app.use(errorsMiddlewares);
 
 export default app;
